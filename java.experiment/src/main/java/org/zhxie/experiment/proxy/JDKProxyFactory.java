@@ -4,7 +4,7 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-public class ProxyFactory {
+public class JDKProxyFactory {
 
   public static void main(String[] args) {
     final Caculator c = new CaculatorImpl();
