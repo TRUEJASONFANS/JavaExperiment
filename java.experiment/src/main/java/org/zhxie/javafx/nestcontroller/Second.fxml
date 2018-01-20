@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox fx:controller="org.zhxie.javafx.nestcontroller.SecondController" prefHeight="300.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button mnemonicParsing="false" text="SecondFXMLBtn" onAction="#secondFXMLBtn"/>
+   </children>
+</VBox>
