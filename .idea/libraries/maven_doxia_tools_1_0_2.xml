@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="maven-doxia-tools-1.0.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/java.experiment/new-local-repository/org/apache/maven/shared/maven-doxia-tools/1.0.2/maven-doxia-tools-1.0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
