@@ -1,6 +1,9 @@
 ## 考察内存模型理解
+
+### JDK&JVM&JRE 概念和区别
+
 ### JVM 对内存的抽象分为主要哪几区
-1. heap (new 出来的对象存放位置）&& method area
+1. heap (new 出来的对象存放位置）&& method area (It stores per-class structures such as the run-time constant pool, field and method data, and the code for methods and construct)
 2. 线程私有隔离区：VM Stack, Native mathod stack, program counter register
 
 ### 堆又可以分为哪几个区？
@@ -9,9 +12,9 @@ young->Tenured(eden->survior->old gen)
 ### JVM如何做垃圾回收的？
 
 答由垃圾回收器负责对各区进行回收，比如堆区的回收策略
-	1) minor gc
-	2) major gc
-	3) full gc 
+	1) minor gc， 什么时候触发？ 当eden区满的时候
+	2) major gc 
+	3) full gc 什么时候触发？ 当老年代空间不足，方法区空间不足等
 
 ### Java是如何判断某对象是否可回收的？ 
 答： 该对象到GC root节点是否存在引用路径可达
@@ -21,6 +24,15 @@ young->Tenured(eden->survior->old gen)
 
 ### 有没有遇到过性能问题，如何解决的？
 
+1.缓存
+2.异步调用
+
+### 单例模式的实现几种方式
+
+1. 静态final 字段
+2. double check 双重锁的方式
+3. 静态类内部类（延迟加载）
+4. 枚举方式
 
 ## 考察数据结构
 
@@ -34,12 +46,28 @@ young->Tenured(eden->survior->old gen)
 
 5. 寻找数组中第K小的数
 
+  1. 快排 n*logn
+  2. 改进选择算法 一次选取K个数，从中选出Kmax 复杂度n*o(K)
+  3. 算法2改进， 利用K个数的最大堆算法选出kmax, 复杂度n*logK
+  4. 基于快排的改进算法
+  	选取S中一个元素作为枢纽元v，将集合S-{v}分割成S1和S2，就像快速排序那样
+如果k <= |S1|，那么第k个最小元素必然在S1中。在这种情况下，返回QuickSelect(S1, k)。
+如果k = 1 + |S1|，那么枢纽元素就是第k个最小元素，即找到，直接返回它。
+否则，这第k个最小元素就在S2中，即S2中的第（k - |S1| - 1）个最小元素，我们递归调用并返回QuickSelect(S2, k - |S1| - 1)。
+此算法的平均运行时间为O(n)。
+
+## 当一个UI 事件响应处理函数耗时过长时候 要注意什么？
+
+## Jdk 8
+
+### 什么是函数式编程?
+
 
 ## 考察操作系统
 
 1. 线程和进程的区别
     1. 线程 share 内存， 独立的栈，局部变量，寄存器，程序计数器， 进程独占内存空间（从空间上）
-    2. 线程是cpu是计算机调度的基本单位。
+    2. 线程是cpu是计算机调度的基本单位。
     3. 一个进程无法直接访问其他进程资源
 
 
